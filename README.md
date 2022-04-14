@@ -162,6 +162,15 @@ $settings['config_sync_directory'] = '../config/sync';`
 
 - `docker run --net=ddev_default -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-weekly zap-baseline.py -d -c owasp-zap.conf -p owasp-zap-progress.json -t https://ddev-<projectname>-web`
 
+### GrumPHP
+
+* [GrumPHP](https://github.com/phpro/grumphp) will run some tests on code to be committed. The file grumphp.yml is used to configure.
+    * Coding Standards
+    * Deny committing a list of debug keywords
+    * json and yaml linting
+    * Composer lock file validation
+    * Enlightn Security Checker
+
 - - -
 
 ### How can I apply patches to downloaded modules?
