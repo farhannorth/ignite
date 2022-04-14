@@ -132,6 +132,12 @@ $settings['config_sync_directory'] = '../config/sync';`
 - phpcs - `./tests/code-sniffer.sh ./web`
 - phpcbf - `./tests/code-fixer.sh ./web`
 
+### Drupal-check custom development for 10 readiness.
+
+*NOTE* Checks will not run until modules are in the "web/modules/custom" directory.
+
+- `./vendor/mediacurrent/ci-tests/tests/drupal-check.sh web`
+
 ### Run BDD tests.
 
 - `ddev . tests/behat/behat-run.sh https://example.ddev.site`
