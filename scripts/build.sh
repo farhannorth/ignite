@@ -19,7 +19,10 @@ fi
 CMD=$@
 # Default to run "site:build" if no commands provided.
 if [ -z "${CMD}" ]; then
-  CMD="site:build"
+  CMD="site:build -Dexisting_config"
+  if [ -z "$(ls -A ${BASE_DIR}/config/sync/*.yml 2>/dev/null)" ]; then
+    CMD="site:build"
+  fi
 fi
 
 ${BASE_DIR}/scripts/hobson ${CMD}
