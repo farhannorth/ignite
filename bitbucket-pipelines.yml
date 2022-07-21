@@ -43,7 +43,7 @@ pipelines:
           - echo "Drupal-check custom development for Drupal 10 readiness"
           - PHPSTAN=$(./vendor/mediacurrent/ci-tests/tests/drupal-check.sh web)
           - printf '%s\n' "${PHPSTAN}"
-          - if grep -q '[ERROR]' <<< ${PHPSTAN} ; then
+          - if grep -q '\[ERROR\]' <<< ${PHPSTAN} ; then
           - OUTPUT=$(grep '\[ERROR\]\|Running\|\[OK\]' <<< ${PHPSTAN})
           # - slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - drupal-check \`\`\`${OUTPUT}\`\`\`"
           - exit 1
