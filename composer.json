@@ -27,7 +27,6 @@
         "drupal/guardr_core": "^2.0",
         "drush/drush": "^11.0",
         "mediacurrent/mis_profile": "^2.0",
-        "mediacurrent/rain": "^4.0",
         "mediacurrent/rain_admin": "^2.0@beta",
         "mediacurrent/rain_core": "^4.0",
         "mediacurrent/rain_demo": "^3.0@beta",
