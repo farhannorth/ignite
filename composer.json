@@ -45,7 +45,7 @@
         "mglaman/drupal-check": "^1.0",
         "phpro/grumphp": "^1.0.0",
         "phpspec/prophecy-phpunit": "^2",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^5.1"
     },
     "conflict": {
         "drupal/drupal": "*"
