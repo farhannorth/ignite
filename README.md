@@ -1,16 +1,12 @@
 # Composer template for Drupal projects
 ## Package features
 #### Asset packagist support
-The Asset packagist package acts as a bridge between Composer and the popular NPM and Bower repositories, which catalog
-thousands of useful front-end and JavaScript packages. This allows developers to easily pull in packages like DropZoneJS
-and many others without requiring local Node.js to be installed.
+The Asset packagist package acts as a bridge between Composer and the popular NPM and Bower repositories, which catalog thousands of useful front-end and JavaScript packages. This allows developers to easily pull in packages like DropZoneJS and many others without requiring local Node.js to be installed.
 
 Read more: https://lightning.acquia.com/blog/round-your-front-end-javascript-libraries-composer
 
 #### Guardr core security
-Guardr is a Drupal distribution with a combination of modules and settings to enhance a Drupal application's security
-and availability to meet enterprise security requirements. This project leverages Guardr's package management and
-module configuration.
+Guardr is a Drupal distribution with a combination of modules and settings to enhance a Drupal application's security and availability to meet enterprise security requirements. This project leverages Guardr's package management and module configuration.
 
 #### Sub-profile support
 A Drupal core patch has been included to add support for "Sub-profiles".
@@ -18,8 +14,7 @@ A Drupal core patch has been included to add support for "Sub-profiles".
 See: https://www.drupal.org/node/1356276
 
 #### Rain base profile features
-The [Mediacurrent Rain base install profile](https://bitbucket.org/mediacurrent/mis_rain/) includes many of the most
-common packages pre-configured for rapid site development and optional content features.
+The [Mediacurrent Rain base install profile](https://bitbucket.org/mediacurrent/mis_rain/) includes many of the most common packages pre-configured for rapid site development and optional content features.
 
 - - -
 
