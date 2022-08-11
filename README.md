@@ -83,7 +83,7 @@ Example: `$settings['config_sync_directory'] = '../config/sync';`
 * Run ./scripts/build.sh to test
 
 ##### Development Settings
-* The `./web/sites/example.mcdev/settings.local.php` contains settings for customizing the development enviro`nment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
+* The `./web/sites/example.mcdev/settings.local.php` contains settings for customizing the development environment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
 * Visit: https://www.drupal.org/node/2598914 for more details on disabling caching for local development.
 
 ##### Drush commands you should know
@@ -181,7 +181,7 @@ To add a patch to drupal module foobar insert the patches section in the extra s
 
 #### How do I specify a PHP version ?
 
-This project supports PHP 7.3 as minimum version (see Environment requirements of Drupal 9), however it's possible that a composer update will upgrade some package that will then require PHP 7.3+.
+This project supports PHP 7.4 as minimum version (see Environment requirements of Drupal 9), however it's possible that a composer update will upgrade some package that will then require PHP 7.4+.
 
 To prevent this you can add this code to specify the PHP version you want to use in the config section of composer.json:
 
@@ -189,7 +189,7 @@ To prevent this you can add this code to specify the PHP version you want to use
 "config": {
     "sort-packages": true,
     "platform": {
-        "php": "7.3.19"
+        "php": "7.4"
     }
 },
 ```
