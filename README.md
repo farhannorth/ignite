@@ -99,7 +99,7 @@ On both MacOS and Windows hosts, Docker performance can be sluggish on large pro
 
 * [Use Composer](https://www.drupal.org/docs/develop/using-composer/using-composer-to-manage-drupal-site-dependencies#managing-contributed) to add 3rd party dependencies and patches.
 * Write custom modules, themes etc. to the ./web/ directory.
-* Run `drush @example.mcdev cex` to export Drupal configuration to the profile/profilename/config/sync folder.
+* Run `ddev drush cex` to export Drupal configuration to the config/sync folder.
 * Run `$ ./scripts/build.sh` before starting a new ticket. Run build.sh again to test work completed prior to submitting a pull request.
 
 ### Tests
