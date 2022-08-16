@@ -70,8 +70,8 @@ Note that the theme will not render correctly without running npm.
 * Confirm the sync directory in settings.php. This should be done in the sites/default/settings.php file.
 Example:
 `$settings['config_sync_directory'] = '../config/sync';`
+* Run `./scripts/build.sh`
 * Export configuration ( `drush config:export`)
-* Run `./scripts/build.sh` to test
 
 ##### Development Settings
 * The `./web/sites/default/settings.local.php` file contains settings for customizing the development environment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
