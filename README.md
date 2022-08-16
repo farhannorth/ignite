@@ -60,6 +60,7 @@ Rename & configure sample 'mis_profile' install profile
 
 ##### Compile the theme** *(required)*
 Note that the theme will not render correctly without running npm.
+
 - Follow the [rain_theme project README](https://bitbucket.org/mediacurrent/rain_theme/src/4.x/README.md) for build instructions.
 
 ##### Configure Visual Regression test urls** *(Optional)*
@@ -67,14 +68,13 @@ Note that the theme will not render correctly without running npm.
 
 ##### Adding the sync folder to be used with new installs
 * Confirm the sync directory in settings.php. This should be done in the sites/default/settings.php file.
-Example: `$settings['config_sync_directory'] = '../config/sync';`
-
-* Export configuration ( drush config:export)
-* Add the existing-config option to site-install in scripts/build.sh `CMD="site:build -D existing_config"`
-* Run ./scripts/build.sh to test
+Example:
+`$settings['config_sync_directory'] = '../config/sync';`
+* Export configuration ( `drush config:export`)
+* Run `./scripts/build.sh` to test
 
 ##### Development Settings
-* The `./web/sites/example.mcdev/settings.local.php` contains settings for customizing the development environment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
+* The `./web/sites/default/settings.local.php` file contains settings for customizing the development environment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
 * Visit: https://www.drupal.org/node/2598914 for more details on disabling caching for local development.
 
 ##### Drush commands you should know
@@ -82,8 +82,6 @@ Example: `$settings['config_sync_directory'] = '../config/sync';`
 * `ddev drush cr` to flush the drupal cache
 * `ddev drush cex` to export config changes
 * `ddev drush cim` to import config changes
-
-
 
 #### Additional information:
 - **Install DDEV-Local** on host machine, instructions at https://ddev.readthedocs.io/en/stable/
