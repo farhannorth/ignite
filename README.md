@@ -8,13 +8,8 @@ Read more: https://lightning.acquia.com/blog/round-your-front-end-javascript-lib
 #### Guardr core security
 Guardr is a Drupal distribution with a combination of modules and settings to enhance a Drupal application's security and availability to meet enterprise security requirements. This project leverages Guardr's package management and module configuration.
 
-#### Sub-profile support
-A Drupal core patch has been included to add support for "Sub-profiles".
-
-See: https://www.drupal.org/node/1356276
-
-#### Rain base profile features
-The [Mediacurrent Rain base install profile](https://bitbucket.org/mediacurrent/mis_rain/) includes many of the most common packages pre-configured for rapid site development and optional content features.
+#### Rain features
+The [Mediacurrent Rain features module](https://bitbucket.org/mediacurrent/rain_features/) includes many of the most common packages pre-configured for rapid site development and optional content features.
 
 - - -
 
@@ -51,19 +46,21 @@ Any local development tool should work, the steps below are for DDEV.
 ##### Initialize Project
 - `$ ./scripts/hobson project:init example.ddev.site`
 - `$ ddev restart` <= This command ensures the config/config.yml is in place and has the domain set.
-- For continued project development, proceed to the next section: "Rename & configure sample 'mis_profile' install profile".
+- For continued project development, proceed to the next section: "Configure install profile".
 
 ### 3) Finish configuration
 
 ##### Configure install profile
 Rename & configure sample 'mis_profile' install profile
+
 - Change this to the name of your project name (copy `contrib/mis_profile` directory to `custom/profilename`)
 - Find and replace all instances of 'mis_profile' with your project name
 - Enable desired base profile features and modules (see `mis_profile.install` for more instructions).
-- Note: This command will assist the above steps: ./scripts/hobson project:create-profile --name="example"
+- Note: This command will assist with the above steps: `./scripts/hobson project:create-profile --name="example"`
 
 ##### Compile the theme** *(required)*
 Note that the theme will not render correctly without running npm.
+
 - Follow the [rain_theme project README](https://bitbucket.org/mediacurrent/rain_theme/src/4.x/README.md) for build instructions.
 
 ##### Configure Visual Regression test urls** *(Optional)*
@@ -71,14 +68,13 @@ Note that the theme will not render correctly without running npm.
 
 ##### Adding the sync folder to be used with new installs
 * Confirm the sync directory in settings.php. This should be done in the sites/default/settings.php file.
-Example: `$settings['config_sync_directory'] = '../config/sync';`
-
-* Export configuration ( drush config:export)
-* Add the existing-config option to site-install in scripts/build.sh `CMD="site:build -D existing_config"`
-* Run ./scripts/build.sh to test
+Example:
+`$settings['config_sync_directory'] = '../config/sync';`
+* Run `./scripts/build.sh`
+* Export configuration ( `drush config:export`)
 
 ##### Development Settings
-* The `./web/sites/example.mcdev/settings.local.php` contains settings for customizing the development environment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
+* The `./web/sites/default/settings.local.php` file contains settings for customizing the development environment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
 * Visit: https://www.drupal.org/node/2598914 for more details on disabling caching for local development.
 
 ##### Drush commands you should know
@@ -86,8 +82,6 @@ Example: `$settings['config_sync_directory'] = '../config/sync';`
 * `ddev drush cr` to flush the drupal cache
 * `ddev drush cex` to export config changes
 * `ddev drush cim` to import config changes
-
-
 
 #### Additional information:
 - **Install DDEV-Local** on host machine, instructions at https://ddev.readthedocs.io/en/stable/
@@ -105,7 +99,7 @@ On both MacOS and Windows hosts, Docker performance can be sluggish on large pro
 
 * [Use Composer](https://www.drupal.org/docs/develop/using-composer/using-composer-to-manage-drupal-site-dependencies#managing-contributed) to add 3rd party dependencies and patches.
 * Write custom modules, themes etc. to the ./web/ directory.
-* Run `drush @example.mcdev cex` to export Drupal configuration to the profile/profilename/config/sync folder.
+* Run `ddev drush cex` to export Drupal configuration to the config/sync folder.
 * Run `$ ./scripts/build.sh` before starting a new ticket. Run build.sh again to test work completed prior to submitting a pull request.
 
 ### Tests
