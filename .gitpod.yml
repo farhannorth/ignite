@@ -8,6 +8,10 @@ tasks:
       ddev composer install
       ddev drush si -y --account-pass=admin --site-name='ddev_gitpod' rain_demo
     command: |
+      if [ ! -f .ddev/config.yaml ]; then
+        ddev config --auto
+      fi
+      ddev stop -a
       ddev start -y
       gp ports await 8080 && gp preview $(gp url 8080)
 
