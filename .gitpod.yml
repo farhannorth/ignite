@@ -10,7 +10,10 @@ tasks:
       ddev stop -a
       ddev start -y
       ddev composer install
-      ddev drush si -y --account-pass=admin --site-name='ddev_gitpod' rain_demo --verbose
+      if [ ! -f .config/config.yaml ]; then
+        ddev . /var/www/html/scripts/hobson project:init drupal-project.ddev.site
+      fi
+      ddev . /var/www/html/scripts/build.sh
     command: |
       ddev start -y
       gp ports await 8080 && gp preview $(gp url 8080)
