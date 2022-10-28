@@ -79,7 +79,7 @@ class RoboFile extends \Robo\Tasks
      */
     public function watchCustomModules()
     {
-        $this->taskWatch()->monitor($this->_getProjectRoot() . '/web//modules/custom', function () {
+        $this->taskWatch()->monitor($this->_getProjectRoot() . '/web/modules/custom', function () {
             $this->testPhpUnitTests();
         })->run();
     }
