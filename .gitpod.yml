@@ -14,6 +14,8 @@ tasks:
         ddev . /var/www/html/scripts/hobson project:init drupal-project.ddev.site
       fi
       ddev . /var/www/html/scripts/build.sh
+      sed -i "s/| exec '/| ddev exec php '/" .git/hooks/commit-msg
+      sed -i "s/| exec '/| ddev exec php '/" .git/hooks/pre-commit
     command: |
       ddev start -y
       gp ports await 8080 && gp preview $(gp url 8080)
