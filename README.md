@@ -1,4 +1,8 @@
 # Composer template for Drupal projects
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://bitbucket.org/mediacurrent/drupal-project/src/9.x/)
+
+
 ## Package features
 #### Asset packagist support
 The Asset packagist package acts as a bridge between Composer and the popular NPM and Bower repositories, which catalog thousands of useful front-end and JavaScript packages. This allows developers to easily pull in packages like DropZoneJS and many others without requiring local Node.js to be installed.
