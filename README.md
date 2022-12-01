@@ -2,7 +2,6 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://bitbucket.org/mediacurrent/drupal-project/src/9.x/)
 
-
 ## Package features
 #### Asset packagist support
 The Asset packagist package acts as a bridge between Composer and the popular NPM and Bower repositories, which catalog thousands of useful front-end and JavaScript packages. This allows developers to easily pull in packages like DropZoneJS and many others without requiring local Node.js to be installed.
@@ -35,7 +34,7 @@ rm web/sites/default/.gitignore
 This runs composer install. As this is the first time being run, it is a composer update and calculates all dependencies. You should be ready to spin up a local Drupal site...
 
 ### 2) Spin up your local environment
-Any local development tool should work, the steps below are for DDEV. 
+Any local development tool should work, the steps below are for DDEV.
 
 ##### Configure DDEV-Local
 * Non-interactive configuration. Project names must be alphanumeric and/or hyphenated.
@@ -92,7 +91,7 @@ Example:
 - **Install composer** on MacOS ```brew install composer```
 - Otherwise, see instructions at https://getcomposer.org/
 - **Using NFS for Better Performance**
-On both MacOS and Windows hosts, Docker performance can be sluggish on large projects with many directories. In those cases, it's recommended that you use DDEV's NFS volume feature to mitigate the performance losses. If you're on Linux, you shouldn't have to enable NFS due to its native support for Docker volumes. 
+On both MacOS and Windows hosts, Docker performance can be sluggish on large projects with many directories. In those cases, it's recommended that you use DDEV's NFS volume feature to mitigate the performance losses. If you're on Linux, you shouldn't have to enable NFS due to its native support for Docker volumes.
   - For more information about DDEV's NFS feature, see:
   - https://ddev.readthedocs.io/en/stable/users/performance/#using-nfs-to-mount-the-project-into-the-container
   - https://github.com/drud/ddev/blob/master/scripts/macos_ddev_nfs_setup.sh#L41
