@@ -1,6 +1,6 @@
 {
     "name": "mediacurrent/drupal-project",
-    "description": "Project template for Drupal 8 projects with composer",
+    "description": "Project template for Drupal projects with composer",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -81,6 +81,7 @@
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
+        "enable-patching": true,
         "installer-types": [
             "bower-asset",
             "npm-asset"
