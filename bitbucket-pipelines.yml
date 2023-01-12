@@ -79,7 +79,7 @@ definitions:
           - if [ -e ../vendor/bin/db.sql ]; then
           - cat ../.bitbucket/settings.local.php.txt >> ./sites/default/settings.php
           - ../vendor/bin/drush sqlc < ../vendor/bin/db.sql
-          - if [ -f "$(ls -A ../config/sync/*.yml 2>/dev/null)" ]; then
+          - if [ ! -z "$(ls -A ../config/sync/*.yml 2>/dev/null)" ]; then
           - ../vendor/bin/drush deploy
           - fi
           - else
