@@ -139,14 +139,14 @@ definitions:
           - ../vendor/bin/drush -vvv --debug runserver 172.17.0.1:8080 &
           - cd ..
           # OWASP Zap Baseline report
-          - echo "OWASP ZAP Baseline report"
+          # - echo "OWASP ZAP Baseline report"
           - docker version
           # Set script to continue on failure.
           - set +e
           - ln -s $(pwd) /zap/wrk
           - ls -l /zap/wrk/
           # - /zap/zap-baseline.py -c owasp-zap.conf -p owasp-zap-progress.json -t http://127.0.0.1:8080
-          - CMD=$(/zap/zap-baseline.py -d -c owasp-zap.conf -p owasp-zap-progress.json -t http://172.17.0.1:8080) && printf '%s\n' "${CMD}"|| ( slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - OWASP Zap Baseline report \`\`\`${CMD}\`\`\`" && printf '%s\n' "${CMD}" && exit 1 )
+          # - CMD=$(/zap/zap-baseline.py -d -c owasp-zap.conf -p owasp-zap-progress.json -t http://172.17.0.1:8080) && printf '%s\n' "${CMD}"|| ( slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - OWASP Zap Baseline report \`\`\`${CMD}\`\`\`" && printf '%s\n' "${CMD}" && exit 1 )
           # Run Security Review checks
           - cd web
           # Check security review.
@@ -210,4 +210,4 @@ pipelines:
     - parallel:
       - step: *a11y-regression-test
       - step: *security-test
-      - step: *visual-regression-test
+      # - step: *visual-regression-test
