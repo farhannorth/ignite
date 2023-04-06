@@ -27,10 +27,10 @@
         "drupal/guardr_core": "^2.0",
         "drush/drush": "^11.0",
         "mediacurrent/mis_profile": "^2.0",
-        "mediacurrent/rain_gin": "^1.0",
         "mediacurrent/rain_core": "^5.0",
         "mediacurrent/rain_demo": "^5.0",
         "mediacurrent/rain_features": "^5.0",
+        "mediacurrent/rain_gin": "^1.0",
         "mediacurrent/rain_theme": "^7.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "webflo/drupal-finder": "^1.0.0"
@@ -42,7 +42,7 @@
         "mediacurrent/ci-scripts": "^2.0.0",
         "mediacurrent/ci-tests": "dev-master",
         "mglaman/drupal-check": "^1.0",
-        "phpro/grumphp": "^1.0.0",
+        "phpro/grumphp-shim": "^1.13",
         "phpspec/prophecy-phpunit": "^2"
     },
     "conflict": {
@@ -61,8 +61,8 @@
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "oomphinc/composer-installers-extender": true,
-            "phpro/grumphp": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpro/grumphp-shim": true
         }
     },
     "autoload": {
