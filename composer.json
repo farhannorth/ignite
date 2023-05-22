@@ -20,29 +20,32 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.2",
-        "cweagans/composer-patches": "^1.7.0",
-        "drupal/core-composer-scaffold": "^9.0",
-        "drupal/core-recommended": "^9.0@stable",
+        "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/core-composer-scaffold": "^10.0",
+        "drupal/core-recommended": "^10.0",
         "drupal/guardr_core": "^2.0",
-        "drush/drush": "^11.0",
-        "mediacurrent/mis_profile": "^2.0",
-        "mediacurrent/rain_core": "^5.0",
-        "mediacurrent/rain_demo": "^5.0",
-        "mediacurrent/rain_features": "^5.0",
+        "drupal/x_originating_ip": "1.x-dev@dev",
+        "drush/drush": "^11 || ^12",
+        "mediacurrent/ignite_core": "1.x-dev",
+        "mediacurrent/ignite_demo": "1.x-dev",
+        "mediacurrent/ignite_features": "1.x-dev",
+        "mediacurrent/ignite_theme": "1.x-dev",
+        "mediacurrent/mis_profile": "3.x-dev",
         "mediacurrent/rain_gin": "^1.0",
-        "mediacurrent/rain_theme": "^7.0",
+        "mglaman/composer-drupal-lenient": "^1.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "webflo/drupal-finder": "^1.0.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^9.0",
-        "drupal/drupal-extension": "^4.1",
+        "dmore/behat-chrome-extension": "^1.4.0",
+        "drupal/core-dev": "^10.0",
+        "drupal/drupal-extension": "^5.0",
         "drush-ops/behat-drush-endpoint": "^9.4.1",
         "mediacurrent/ci-scripts": "^2.0.0",
         "mediacurrent/ci-tests": "dev-master",
         "mglaman/drupal-check": "^1.0",
-        "phpro/grumphp-shim": "^1.13",
+        "phpro/grumphp-shim": "^1.0.0",
         "phpspec/prophecy-phpunit": "^2"
     },
     "conflict": {
@@ -51,10 +54,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "preferred-install": "auto",
         "discard-changes": true,
         "sort-packages": true,
         "platform": {
-            "php": "7.4"
+            "php": "8.1"
         },
         "allow-plugins": {
             "composer/installers": true,
@@ -62,7 +66,9 @@
             "drupal/core-composer-scaffold": true,
             "oomphinc/composer-installers-extender": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpro/grumphp-shim": true
+            "phpstan/extension-installer": true,
+            "phpro/grumphp-shim": true,
+            "mglaman/composer-drupal-lenient": true
         }
     },
     "autoload": {
@@ -72,37 +78,66 @@
     },
     "scripts": {
         "robo": "$(pwd)/bin/robo --ansi --load-from $(pwd)/scripts",
-        "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ],
+        "post-install-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ]
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalComposerManaged\\ComposerScripts::postUpdate"
+        ],
+        "pre-update-cmd": ["DrupalComposerManaged\\ComposerScripts::preUpdate"]
     },
     "extra": {
-        "composer-exit-on-patch-failure": true,
-        "enable-patching": true,
         "installer-types": [
             "bower-asset",
             "npm-asset"
         ],
-        "patchLevel": {
-            "drupal/core": "-p2"
-        },
         "drupal-scaffold": {
             "locations": {
-                "web-root": "web/"
+                "web-root": "./web"
+            },
+            "file-mapping": {
+                "[project-root]/.editorconfig": false,
+                "[project-root]/.gitattributes": false
             }
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
             "web/modules/custom/{$name}": ["type:drupal-custom-module"],
-            "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
-        }
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
+            "web/profiles/custom/{$name}": ["type:drupal-custom-profile"],
+            "web/private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
+        },
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/hacked": {
+                "3317869 - Allow Drupal 10 in core_version_requirement": "https://www.drupal.org/files/issues/2022-10-27/3317869-2-hacked-drupal-10.patch"
+            },
+            "drupal/mass_pwreset": {
+                "3297579 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-18/mass_pwreset.2.x-dev.rector.patch"
+            },
+            "drupal/x_originating_ip": {
+                "3290724 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-16/x_originating_ip.1.x-dev.rector.patch"
+            }
+        },
+        "drupal-lenient": {
+            "allowed-list": [
+                "drupal/guardr_core",
+                "drupal/hacked",
+                "drupal/mass_pwreset",
+                "drupal/x_originating_ip"
+            ]
+       }
     }
 }
