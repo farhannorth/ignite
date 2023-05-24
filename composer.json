@@ -24,8 +24,7 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-recommended": "^10.0",
-        "drupal/guardr_core": "^2.0",
-        "drupal/x_originating_ip": "1.x-dev@dev",
+        "drupal/guardr_core": "^2.1",
         "drush/drush": "^11 || ^12",
         "mediacurrent/ignite_core": "^1.0",
         "mediacurrent/ignite_demo": "^1.0",
@@ -33,7 +32,6 @@
         "mediacurrent/ignite_theme": "^1.0",
         "mediacurrent/mis_profile": "^3.0",
         "mediacurrent/rain_gin": "^1.0",
-        "mglaman/composer-drupal-lenient": "^1.0",
         "oomphinc/composer-installers-extender": "^2.0",
         "webflo/drupal-finder": "^1.0.0"
     },
@@ -67,8 +65,7 @@
             "oomphinc/composer-installers-extender": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true,
-            "phpro/grumphp-shim": true,
-            "mglaman/composer-drupal-lenient": true
+            "phpro/grumphp-shim": true
         }
     },
     "autoload": {
@@ -119,25 +116,6 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "enable-patching": true,
-        "patches": {
-            "drupal/hacked": {
-                "3317869 - Allow Drupal 10 in core_version_requirement": "https://www.drupal.org/files/issues/2022-10-27/3317869-2-hacked-drupal-10.patch"
-            },
-            "drupal/mass_pwreset": {
-                "3297579 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-07-18/mass_pwreset.2.x-dev.rector.patch"
-            },
-            "drupal/x_originating_ip": {
-                "3290724 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2022-06-16/x_originating_ip.1.x-dev.rector.patch"
-            }
-        },
-        "drupal-lenient": {
-            "allowed-list": [
-                "drupal/guardr_core",
-                "drupal/hacked",
-                "drupal/mass_pwreset",
-                "drupal/x_originating_ip"
-            ]
-       }
+        "enable-patching": true
     }
 }
