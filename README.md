@@ -173,7 +173,7 @@ To add a patch to drupal module foobar insert the patches section in the extra s
 
 #### How do I specify a PHP version ?
 
-This project supports PHP 7.4 as minimum version (see Environment requirements of Drupal 9), however it's possible that a composer update will upgrade some package that will then require PHP 7.4+.
+This project supports PHP 8.1 as minimum version (see Environment requirements of Drupal 9), however it's possible that a composer update will upgrade some package that will then require PHP 8.1+.
 
 To prevent this you can add this code to specify the PHP version you want to use in the config section of composer.json:
 
@@ -181,7 +181,7 @@ To prevent this you can add this code to specify the PHP version you want to use
 "config": {
     "sort-packages": true,
     "platform": {
-        "php": "7.4"
+        "php": "8.1"
     }
 },
 ```
