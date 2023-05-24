@@ -11,15 +11,15 @@ Read more: https://lightning.acquia.com/blog/round-your-front-end-javascript-lib
 #### Guardr core security
 Guardr is a Drupal distribution with a combination of modules and settings to enhance a Drupal application's security and availability to meet enterprise security requirements. This project leverages Guardr's package management and module configuration.
 
-#### Rain features
-The [Mediacurrent Rain features module](https://bitbucket.org/mediacurrent/rain_features/) includes many of the most common packages pre-configured for rapid site development and optional content features.
+#### Ignite features
+The [Mediacurrent Ignite features module](https://bitbucket.org/mediacurrent/ignite_features/) includes many of the most common packages pre-configured for rapid site development and optional content features.
 
 - - -
 
 ## Installation & local setup
 
 ### 1) Checkout codebase
-The Rain packages are available for you to clone in a modified version of the recommended Drupal composer template.
+The Ignite packages are available for you to clone in a modified version of the recommended Drupal composer template.
 
 ##### To start, clone the public Bitbucket repo:
 ```
@@ -64,7 +64,7 @@ Rename & configure sample 'mis_profile' install profile
 ##### Compile the theme** *(required)*
 Note that the theme will not render correctly without running npm.
 
-- Follow the [rain_theme project README](https://bitbucket.org/mediacurrent/rain_theme/src/4.x/README.md) for build instructions.
+- Follow the [ignite_theme project README](https://bitbucket.org/mediacurrent/ignite_theme/src/1.x/README.md) for build instructions.
 
 ##### Configure Visual Regression test urls** *(Optional)*
 - Edit "tests/visual-regression/backstop.js" environments to use the correct urls for any of the local, dev, staging, or prod urls known.
