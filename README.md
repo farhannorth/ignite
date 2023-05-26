@@ -41,17 +41,6 @@ Any local development tool should work, the steps below are for DDEV.
 - `$ ddev restart` <= This command ensures the config/config.yml is in place and has the domain set.
 - For continued project development, proceed to the next section: "Configure install profile".
 
-
-##### Configure Visual Regression test urls** *(Optional)*
-- Edit "tests/visual-regression/backstop.js" environments to use the correct urls for any of the local, dev, staging, or prod urls known.
-
-##### Adding the sync folder to be used with new installs
-* Confirm the sync directory in settings.php. This should be done in the sites/default/settings.php file.
-Example:
-`$settings['config_sync_directory'] = '../config/sync';`
-* Run `./scripts/build.sh`
-* Export configuration ( `drush config:export`)
-
 ##### Development Settings
 * The `./web/sites/default/settings.local.php` file contains settings for customizing the development environment.  This disables Drupal's built in caching and additionally activates sites/development.services.yml for further customizing the development environment.
 * Visit: https://www.drupal.org/node/2598914 for more details on disabling caching for local development.
