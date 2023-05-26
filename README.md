@@ -2,19 +2,9 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://bitbucket.org/mediacurrent/drupal-project/src/9.x/)
 
-## Package features
-#### Asset packagist support
-The Asset packagist package acts as a bridge between Composer and the popular NPM and Bower repositories, which catalog thousands of useful front-end and JavaScript packages. This allows developers to easily pull in packages like DropZoneJS and many others without requiring local Node.js to be installed.
+## Documentation
 
-Read more: https://lightning.acquia.com/blog/round-your-front-end-javascript-libraries-composer
-
-#### Guardr core security
-Guardr is a Drupal distribution with a combination of modules and settings to enhance a Drupal application's security and availability to meet enterprise security requirements. This project leverages Guardr's package management and module configuration.
-
-#### Ignite features
-The [Mediacurrent Ignite features module](https://bitbucket.org/mediacurrent/ignite_features/) includes many of the most common packages pre-configured for rapid site development and optional content features.
-
-- - -
+See full documentation for Ignite CMS at https://mediacurrent.gitbook.io/ignite-cms/
 
 ## Installation & local setup
 
@@ -51,20 +41,6 @@ Any local development tool should work, the steps below are for DDEV.
 - `$ ddev restart` <= This command ensures the config/config.yml is in place and has the domain set.
 - For continued project development, proceed to the next section: "Configure install profile".
 
-### 3) Finish configuration
-
-##### Configure install profile
-Rename & configure sample 'mis_profile' install profile
-
-- Change this to the name of your project name (copy `contrib/mis_profile` directory to `custom/profilename`)
-- Find and replace all instances of 'mis_profile' with your project name
-- Enable desired base profile features and modules (see `mis_profile.install` for more instructions).
-- Note: This command will assist with the above steps: `./scripts/hobson project:create-profile --name="example"`
-
-##### Compile the theme** *(required)*
-Note that the theme will not render correctly without running npm.
-
-- Follow the [ignite_theme project README](https://bitbucket.org/mediacurrent/ignite_theme/src/1.x/README.md) for build instructions.
 
 ##### Configure Visual Regression test urls** *(Optional)*
 - Edit "tests/visual-regression/backstop.js" environments to use the correct urls for any of the local, dev, staging, or prod urls known.
@@ -90,12 +66,6 @@ Example:
 - **Install DDEV-Local** on host machine, instructions at https://ddev.readthedocs.io/en/stable/
 - **Install composer** on MacOS ```brew install composer```
 - Otherwise, see instructions at https://getcomposer.org/
-- **Using NFS for Better Performance**
-On both MacOS and Windows hosts, Docker performance can be sluggish on large projects with many directories. In those cases, it's recommended that you use DDEV's NFS volume feature to mitigate the performance losses. If you're on Linux, you shouldn't have to enable NFS due to its native support for Docker volumes.
-  - For more information about DDEV's NFS feature, see:
-  - https://ddev.readthedocs.io/en/stable/users/performance/#using-nfs-to-mount-the-project-into-the-container
-  - https://github.com/drud/ddev/blob/master/scripts/macos_ddev_nfs_setup.sh#L41
-
 
 - - -
 ## Development Workflow
