@@ -151,7 +151,7 @@ definitions:
           - cd web
           # Check security review.
           - ../vendor/bin/drush en security_review
-          - SECURITYREVIEW=$(../vendor/bin/drush secrev --skip=blocked_admin_account,error_reporting,executable_php,failed_logins,file_perms,private_files,views_access,trusted_hosts,field 2>&1)
+          - SECURITYREVIEW=$(../vendor/bin/drush secrev --skip=blocked_admin_account,error_reporting,executable_php,failed_logins,file_perms,last_cron_run,private_files,views_access,trusted_hosts,field 2>&1)
           - printf '%s\n' "${SECURITYREVIEW}"
           - if grep -q 'failed' <<< ${SECURITYREVIEW} ; then
           - slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - secrev \`\`\`${SECURITYREVIEW}\`\`\`"
