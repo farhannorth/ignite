@@ -10,7 +10,7 @@ tasks:
       ddev stop -a
       ddev start -y
       ddev composer install
-      if [ ! -f .config/config.yaml ]; then
+      if [ ! -f ./config/config.yml ]; then
         ddev . /var/www/html/scripts/hobson project:init drupal-project.ddev.site
       fi
       ddev . /var/www/html/scripts/build.sh
