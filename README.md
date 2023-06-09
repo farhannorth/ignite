@@ -1,6 +1,6 @@
 # Composer template for Drupal projects
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://bitbucket.org/mediacurrent/drupal-project/src/9.x/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://bitbucket.org/mediacurrent/drupal-project/src/10.x/)
 
 ## Documentation
 
