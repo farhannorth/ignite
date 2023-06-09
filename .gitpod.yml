@@ -5,7 +5,7 @@ image: drupalpod/drupalpod-gitpod-base:latest
 tasks:
   - init: |
       if [ ! -f .ddev/config.yaml ]; then
-        ddev config --docroot=web --project-name="drupal-project" --project-type=drupal9 --webserver-type="nginx-fpm" --create-docroot
+        ddev config --docroot=web --project-name="drupal-project" --project-type=drupal10 --webserver-type="nginx-fpm" --create-docroot
       fi
       ddev stop -a
       ddev start -y
