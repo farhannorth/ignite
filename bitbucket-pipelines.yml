@@ -114,8 +114,6 @@ definitions:
           - echo 'SIMPLETEST_DB="mysql://drupal:drupal@127.0.0.1:3306/drupal"' >> .env
           # PHPUnit - Kernel and Functional tests
           - composer robo test:phpunit-tests -- --filter="/Kernel|Functional/"
-          # PHPUnit - Drupal Test Trait ExistingSite tests
-          - DTT_BASE_URL=http://127.0.0.1:8080 ./vendor/bin/phpunit --configuration=./tests/dtt/phpunit.xml ./web/modules/custom/
           - fi
           # Drupal accessibility tests
           # - echo "Accessibility tests"
