@@ -4,8 +4,6 @@ image: drupalpod/drupalpod-gitpod-base:latest
 # when starting a workspace all docker images are ready
 tasks:
   - init: |
-      sudo apt-get update
-      sudo apt-get install ddev
       if [ ! -f .ddev/config.yaml ]; then
         ddev config --docroot=web --project-name="drupal-project" --project-type=drupal10 --webserver-type="nginx-fpm" --create-docroot
       fi
