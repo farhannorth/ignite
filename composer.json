@@ -77,11 +77,7 @@
     "scripts": {
         "robo": "$(pwd)/bin/robo --ansi --load-from $(pwd)/scripts",
         "post-install-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"],
-        "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-            "DrupalComposerManaged\\ComposerScripts::postUpdate"
-        ],
-        "pre-update-cmd": ["DrupalComposerManaged\\ComposerScripts::preUpdate"]
+        "post-update-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"]
     },
     "extra": {
         "installer-types": [
