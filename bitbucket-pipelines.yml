@@ -68,7 +68,7 @@ definitions:
           # Check for pending security updates.
           - COMPOSERAUDIT=$(composer audit 2>&1)
           - printf '%s\n' "${COMPOSERAUDIT}"
-          - if grep -vq 'No security vulnerability advisories found' <<< ${COMPOSERAUDIT} ; then
+          - if ! grep -q 'No security vulnerability advisories found' <<< ${COMPOSERAUDIT} ; then
           - slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - composer audit \`\`\`${COMPOSERAUDIT}\`\`\`"
           # - exit 1
           - fi
