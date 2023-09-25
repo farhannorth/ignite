@@ -65,7 +65,6 @@ definitions:
           - exit 1
           - fi
           - printf "127.0.0.1 example.mcdev" >> /etc/hosts
-          - cd ./web
           # Check for pending security updates.
           - COMPOSERAUDIT=$(composer audit 2>&1)
           - printf '%s\n' "${COMPOSERAUDIT}"
@@ -73,6 +72,7 @@ definitions:
           - slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - composer audit \`\`\`${COMPOSERAUDIT}\`\`\`"
           # - exit 1
           - fi
+          - cd ./web
           # Set script to stop on failure.
           - set -e
           # if db.sql exists, import and run drush deploy, else run site:install.
