@@ -10,6 +10,8 @@ grumphp:
       file: ./composer.json
       no_check_all: true
       no_check_publish: true
+    # Make sure the composer.json file follows a standard format.
+    composer_normalize: ~
     git_blacklist:
       keywords:
         - "<<<<<<< HEAD"
