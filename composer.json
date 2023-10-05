@@ -1,22 +1,12 @@
 {
     "name": "mediacurrent/drupal-project",
     "description": "Project template for Drupal projects with composer",
-    "type": "project",
     "license": "GPL-2.0-or-later",
+    "type": "project",
     "authors": [
         {
             "name": "",
             "role": ""
-        }
-    ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
         }
     ],
     "require": {
@@ -51,15 +41,24 @@
     "conflict": {
         "drupal/drupal": "*"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
     "config": {
-        "preferred-install": "auto",
-        "discard-changes": true,
-        "sort-packages": true,
-        "platform": {
-            "php": "8.1"
-        },
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
@@ -69,52 +68,79 @@
             "phpstan/extension-installer": true,
             "phpro/grumphp-shim": true,
             "ergebnis/composer-normalize": true
-        }
-    },
-    "autoload": {
-        "classmap": [
-            "scripts/composer/ScriptHandler.php"
-        ]
-    },
-    "scripts": {
-        "robo": "$(pwd)/bin/robo --ansi --load-from $(pwd)/scripts",
-        "post-install-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"],
-        "post-update-cmd": ["DrupalProject\\composer\\ScriptHandler::createRequiredFiles"]
+        },
+        "discard-changes": true,
+        "platform": {
+            "php": "8.1"
+        },
+        "preferred-install": "auto",
+        "sort-packages": true
     },
     "extra": {
-        "installer-types": [
-            "bower-asset",
-            "npm-asset"
-        ],
+        "composer-exit-on-patch-failure": true,
+        "composer-normalize": {
+            "indent-size": 4,
+            "indent-style": "space"
+        },
         "drupal-scaffold": {
-            "locations": {
-                "web-root": "./web"
-            },
             "file-mapping": {
                 "[project-root]/.editorconfig": false,
                 "[project-root]/.gitattributes": false
+            },
+            "locations": {
+                "web-root": "./web"
             }
         },
+        "enable-patching": true,
         "installer-paths": {
-            "web/core": ["type:drupal-core"],
+            "web/core": [
+                "type:drupal-core"
+            ],
             "web/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
                 "type:npm-asset"
             ],
-            "web/modules/contrib/{$name}": ["type:drupal-module"],
-            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "web/themes/contrib/{$name}": ["type:drupal-theme"],
-            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
-            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
-            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
-            "web/profiles/custom/{$name}": ["type:drupal-custom-profile"],
-            "web/private/scripts/quicksilver/{$name}/": ["type:quicksilver-script"]
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/private/scripts/quicksilver/{$name}/": [
+                "type:quicksilver-script"
+            ]
         },
-        "composer-exit-on-patch-failure": true,
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "patchLevel": {
             "drupal/core": "-p2"
-        },
-        "enable-patching": true
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "robo": "$(pwd)/bin/robo --ansi --load-from $(pwd)/scripts"
     }
 }
