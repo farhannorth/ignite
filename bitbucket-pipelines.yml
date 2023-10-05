@@ -37,6 +37,8 @@ definitions:
           - composer selfupdate
           - composer validate --no-check-all --no-check-publish
           - composer --verbose install
+          # Verify the composer.json file is normalized, fail if not.
+          - composer normalize --dry-run
           - ls -l ./vendor/bin
           - ./vendor/bin/behat --version
           - ./vendor/bin/drush version
