@@ -72,7 +72,7 @@ definitions:
           - printf '%s\n' "${COMPOSERAUDIT}"
           - if ! grep -q 'No security vulnerability advisories found' <<< ${COMPOSERAUDIT} ; then
           - OUTPUT=$(printf '%s\n' "${COMPOSERAUDIT}" | sed "s/\"/'/g" )
-          - slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - composer audit \`\`\`${COMPOSERAUDIT}\`\`\`"
+          - slackcli -h ${SLACK_CHANNEL} -e ":lock:" -m "https://bitbucket.org/mediacurrent/${BITBUCKET_REPO_SLUG}/addon/pipelines/home#!/results/$BITBUCKET_BUILD_NUMBER - ${BITBUCKET_BRANCH} - composer audit \`\`\`${OUTPUT}\`\`\`"
           # - exit 1
           - fi
           - cd ./web
