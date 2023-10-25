@@ -62,12 +62,12 @@
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
-            "drupal/core-composer-scaffold": true,
-            "oomphinc/composer-installers-extender": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpstan/extension-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "ergebnis/composer-normalize": true,
+            "oomphinc/composer-installers-extender": true,
             "phpro/grumphp-shim": true,
-            "ergebnis/composer-normalize": true
+            "phpstan/extension-installer": true
         },
         "discard-changes": true,
         "platform": {
