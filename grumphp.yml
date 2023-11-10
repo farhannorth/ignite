@@ -1,6 +1,8 @@
 ---
 # grumphp.yml
 grumphp:
+  git_hook_variables:
+    EXEC_GRUMPHP_COMMAND: './scripts/grumphp.sh'
   ascii:
     failed:
     succeeded:
