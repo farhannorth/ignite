@@ -1,5 +1,5 @@
 
-image: mediacurrent/mc-bb-pipelines:PHP8.2
+image: mediacurrent/mc-bb-pipelines:PHP8.3
 
 definitions:
   caches:
