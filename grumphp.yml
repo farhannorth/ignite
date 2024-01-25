@@ -68,14 +68,14 @@ grumphp:
     shell:
       scripts:
         - ["-c", "./vendor/mediacurrent/ci-tests/tests/drupal-check.sh web"]
-        - triggered_by:
-          - inc
-          - install
-          - module
-          - php
-          - profile
-          - test
-          - theme
+      triggered_by:
+        - inc
+        - install
+        - module
+        - php
+        - profile
+        - test
+        - theme
     # Lint our YAML files.
     yamllint: ~
     # Run Enlightn Security Checker.
