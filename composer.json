@@ -30,12 +30,11 @@
         "drupal/core-dev": "^10.0",
         "drupal/drupal-extension": "^5.0",
         "drush-ops/behat-drush-endpoint": "^9.4.1",
-        "enlightn/security-checker": "^1.10",
         "ergebnis/composer-normalize": "^2.37",
         "mediacurrent/ci-scripts": "^2.0.0",
         "mediacurrent/ci-tests": "dev-master",
         "mglaman/drupal-check": "^1.0",
-        "phpro/grumphp-shim": "^2.0",
+        "phpro/grumphp-shim": "^2.5.0",
         "phpspec/prophecy-phpunit": "^2"
     },
     "conflict": {
@@ -66,6 +65,7 @@
             "drupal/core-composer-scaffold": true,
             "ergebnis/composer-normalize": true,
             "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
             "phpro/grumphp-shim": true,
             "phpstan/extension-installer": true
         },
