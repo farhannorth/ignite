@@ -78,7 +78,5 @@ grumphp:
         - theme
     # Lint our YAML files.
     yamllint: ~
-    # Run Enlightn Security Checker.
-    securitychecker_enlightn:
-      lockfile: ./composer.lock
-      run_always: false
+    # Run Composer Audit Security Checker.
+    securitychecker_composeraudit: ~
