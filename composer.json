@@ -135,11 +135,6 @@
         ],
         "patchLevel": {
             "drupal/core": "-p2"
-        },
-        "patches": {
-            "drupal/viewsreference": {
-                "3273497: Passing null to parameter #1 ($data) of type string to unserialize() is deprecated": "https://www.drupal.org/files/issues/2023-11-07/viewsreference-3273497-27.patch"
-            }
         }
     },
     "scripts": {
